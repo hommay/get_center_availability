@@ -4,6 +4,16 @@ from fake_useragent import UserAgent
 
 def get_nishinomiya_center_availability(request):
 
+    if request.args and 'reservMon' in request.args:
+        reservMon = request.args.get('reservMon')
+    else:
+        return "必須項目をリクエストクエリに含めてください"
+
+    if request.args and 'reservDay' in request.args:
+        reservDay = request.args.get('reservDay')
+    else:
+        return "必須項目をリクエストクエリに含めてください"
+
     riyosya_code = "<まなびねっとの利用者コードを入力>"
     txt_password = "<まなびねっとのパスワードを入力>"
 
@@ -26,8 +36,8 @@ def get_nishinomiya_center_availability(request):
     # ーーーここから空き情報収集ーーー
 
     # 予約する日付
-    reservMon = 9
-    reservDay = 20
+    # reservMon = 9
+    # reservDay = 20
     pracStart = 11
     parcEnd = 17
 
